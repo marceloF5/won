@@ -10,7 +10,7 @@ export default {
 
 export const Basic = () => (
     <Main
-        title={text('Title', 'Advanced React Course')}
+        title={text('Title', 'Boilerplate NextJS')}
         description={text(
             'Description',
             'with TypeScript, ReactJS, NextJS and Styled Components'
