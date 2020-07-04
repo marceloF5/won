@@ -59,7 +59,7 @@ exports[`<Main /> should render Main component 1`] = `
   <h2
     class="c3"
   >
-    with TypeScript, ReactJS, NextJS and Styled Components
+    A developer in front a screen code in his computer
   </h2>
   <img
     alt="A developer in front a screen code in his computer"

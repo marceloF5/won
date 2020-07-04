@@ -4,7 +4,12 @@ import Main from '../'
 
 describe('<Main />', () => {
     it('should render Main component', () => {
-        const { container } = render(<Main />)
+        const { container } = render(
+            <Main
+                title="Advanced React Course"
+                description="A developer in front a screen code in his computer"
+            />
+        )
 
         expect(container.firstChild).toMatchSnapshot()
 
