@@ -6,20 +6,25 @@ describe('<Main />', () => {
     it('should render Main component', () => {
         const { container } = render(
             <Main
-                title="Advanced React Course"
-                description="A developer in front a screen code in his computer"
+                title="Boilerplate NextJS"
+                description="with TypeScript, ReactJS, NextJS and Styled Components"
             />
         )
 
         expect(container.firstChild).toMatchSnapshot()
 
         expect(
-            screen.getByRole('heading', { name: /Advanced React Course/i })
+            screen.getByRole('heading', { name: /Boilerplate NextJS/i })
         ).toBeInTheDocument()
     })
 
     it('should render the colors correctly', () => {
-        const { container } = render(<Main />)
+        const { container } = render(
+            <Main
+                title="Boilerplate NextJ"
+                description="with TypeScript, ReactJS, NextJS and Styled Components"
+            />
+        )
 
         expect(container.firstChild).toHaveStyle({
             'background-color': '#06092b'

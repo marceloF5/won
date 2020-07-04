@@ -54,12 +54,12 @@ exports[`<Main /> should render Main component 1`] = `
   <h1
     class="c2"
   >
-    Advanced React Course
+    Boilerplate NextJS
   </h1>
   <h2
     class="c3"
   >
-    A developer in front a screen code in his computer
+    with TypeScript, ReactJS, NextJS and Styled Components
   </h2>
   <img
     alt="A developer in front a screen code in his computer"
@@ -67,4 +67,4 @@ exports[`<Main /> should render Main component 1`] = `
     src="/img/hero-illustration.svg"
   />
 </main>
-`
+`;
