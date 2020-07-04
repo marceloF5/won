@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Main /> should render Main component 1`] = `
-<main>
-  <h1>
-    Advanced React Course
-  </h1>
-</main>
-`
