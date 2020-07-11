@@ -7,10 +7,10 @@ interface MainProps {
 
 const Main: React.FC<MainProps> = ({ title, description }) => (
     <S.Wrapper>
-        <S.Logo
+        {/* <S.Logo
             src="/img/logo.svg"
             alt="Atomic Image and Advanced React written in side"
-        />
+        /> */}
         <S.Title>{title}</S.Title>
         <S.Description>{description}</S.Description>
         <S.Illustration

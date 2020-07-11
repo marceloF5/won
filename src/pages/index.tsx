@@ -1,12 +1,7 @@
 import Main from 'components/main'
 
 function Home() {
-    return (
-        <Main
-            title="Boilerplate NextJS"
-            description="with TypeScript, ReactJS, NextJS and Styled Components"
-        />
-    )
+    return <Main title="Building..." description="see you soon ;)" />
 }
 
 export default Home
