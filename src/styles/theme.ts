@@ -22,14 +22,14 @@ export default {
         }
     },
     colors: {
-        primary: '#F231A5',
-        secondary: '#3CD3C1',
-        mainBg: '#06092B',
-        white: '#FAFAFA',
+        primary: '#f231a5',
+        secondary: '#3cd3c1',
+        mainbg: '#06092b',
+        white: '#fafafa',
         black: '#030517',
-        lightGray: '#EAEAEA',
-        gray: '#8F8F8F',
-        darkGray: '#2E2F42'
+        lightgray: '#eaeaea',
+        gray: '#8f8f8f',
+        darkgray: '#2e2f42'
     },
     spacings: {
         xxsmall: '0.8rem',
