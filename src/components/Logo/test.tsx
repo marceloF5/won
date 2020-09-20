@@ -38,12 +38,13 @@ describe('<Logo />', () => {
         })
     })
 
-    it('should render a bigger logo when large parameter is passed to size', () => {
-        renderWithTheme(<Logo size="large" />)
+    it('should render a bigger logo without text if hideOnMobile', () => {
+        renderWithTheme(<Logo size="large" hideOnMobile />)
 
-        expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
-            width: '20rem',
-            height: '5.9rem'
+        expect(
+            screen.getByLabelText(/Won Games/i).parentElement
+        ).toHaveStyleRule('width', '5.8rem', {
+            media: '(max-width: 768px)'
         })
     })
 })
