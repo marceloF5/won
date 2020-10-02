@@ -73,6 +73,16 @@ exports[`<Banner /> should render correctly 1`] = `
   }
 }
 
+@media (max-width:1170px) {
+  .c0 .sc-AxirZ {
+    right: 0;
+  }
+
+  .c0 .sc-AxirZ::before {
+    display: none;
+  }
+}
+
 @media (min-width:768px) {
   .c1 {
     height: 58rem;
