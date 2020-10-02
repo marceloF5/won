@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
+import * as S from './styles'
 import Highlight from '.'
 
 const props = {
@@ -45,8 +46,11 @@ describe('<Highlight />', () => {
 
         expect(container.firstChild).toHaveStyleRule(
             'grid-template-areas',
-            'floatimage content'
+            "'floatimage content'"
         )
+        expect(container.firstChild).toHaveStyleRule('text-align', 'right', {
+            modifier: `${S.Content}`
+        })
     })
 
     it('should render align left', () => {
@@ -56,7 +60,11 @@ describe('<Highlight />', () => {
 
         expect(container.firstChild).toHaveStyleRule(
             'grid-template-areas',
-            'content floatimage'
+            "'content floatimage'"
         )
+
+        expect(container.firstChild).toHaveStyleRule('text-align', 'left', {
+            modifier: `${S.Content}`
+        })
     })
 })
