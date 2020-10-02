@@ -5,14 +5,16 @@ import { HighlightProps } from '.'
 type WrapperProps = Pick<HighlightProps, 'backgroundImage'>
 
 export const Wrapper = styled.section<WrapperProps>`
-    ${({ backgroundImage }) => css`
+    ${({ backgroundImage, alignment }) => css`
         background-image: url(${backgroundImage});
         background-position: center center;
         background-size: cover;
         height: 23rem;
         position: relative;
         display: grid;
-        grid-template-areas: 'floatimage content';
+        grid-template-areas: ${alignment === 'right'
+            ? 'floatimage content'
+            : 'content floatimage'};
         grid-template-columns: 1.3fr 2fr;
 
         &::after {

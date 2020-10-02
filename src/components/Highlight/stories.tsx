@@ -10,7 +10,8 @@ export default {
         backgroundImage:
             'https://source.unsplash.com/user/willianjusten/1042x580',
         buttonLabel: 'Buy Now',
-        buttonLink: '/games'
+        buttonLink: '/games',
+        alignment: 'right'
     }
 } as Meta
 
