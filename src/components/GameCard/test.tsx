@@ -1,7 +1,6 @@
 import { screen } from '@testing-library/react'
 
 import { renderWithTheme } from 'utils/tests/helpers'
-import theme from 'styles/theme'
 import GameCard from '.'
 
 const props = {
@@ -36,7 +35,7 @@ describe('<GameCard />', () => {
 
         expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
         expect(price).toHaveStyle({
-            backgroundColor: theme.colors.secondary
+            backgroundColor: '#3cd3c1'
         })
     })
 
