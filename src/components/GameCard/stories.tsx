@@ -10,6 +10,10 @@ export default {
         img: 'https://source.unsplash.com/user/willianjusten/1042x580',
         price: '€ 65.00'
     },
+    argTypes: {
+        onFav: { action: 'clicked' },
+        ribbon: { type: 'string' }
+    },
     parameters: {
         backgrounds: {
             default: 'dark'
