@@ -9,7 +9,7 @@ describe('<Heading />', () => {
 
         expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyle(
             {
-                color: '#030517'
+                color: '#fafafa'
             }
         )
     })
