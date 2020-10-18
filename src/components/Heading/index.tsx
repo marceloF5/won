@@ -13,11 +13,11 @@ export type HeadingProps = {
 
 const Heading = ({
     children,
-    color = 'black',
+    color = 'white',
     lineColor = 'primary',
     lineBottom = false,
     lineLeft = false,
-    size = 'small'
+    size = 'medium'
 }: HeadingProps) => (
     <S.Wrapper
         color={color}
