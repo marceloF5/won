@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src --max-warnings=0",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "test": "jest",
     "test:watch": "yarn test --watch",
     "storybook": "start-storybook -s ./public -p 6006",
@@ -21,6 +22,7 @@
   "lint-staged": {
     "src/**/*": [
       "yarn lint --fix",
+      "yarn typecheck",
       "yarn test --findRelatedTests --bail"
     ]
   },
