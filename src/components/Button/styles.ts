@@ -1,9 +1,10 @@
 import styled, { css, DefaultTheme } from 'styled-components'
+import { darken } from 'polished'
 import { ButtonProps } from '.'
 
 type WrapperProps = { hasIcon: boolean } & Pick<
     ButtonProps,
-    'fullWidth' | 'size'
+    'fullWidth' | 'minimal' | 'size'
 >
 
 const wrapperModifiers = {
@@ -28,6 +29,15 @@ const wrapperModifiers = {
         padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
     `,
 
+    minimal: (theme: DefaultTheme) => css`
+        background: none;
+        color: ${theme.colors.primary};
+
+        &:hover {
+            color: ${darken(0.1, theme.colors.primary)};
+        }
+    `,
+
     withIcon: (theme: DefaultTheme) => css`
         svg {
             width: 1.5rem;
@@ -40,11 +50,10 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-    ${({ theme, fullWidth, hasIcon, size }) => css`
+    ${({ theme, fullWidth, hasIcon, minimal, size }) => css`
         display: inline-flex;
         align-items: center;
         justify-content: center;
-
         color: ${theme.colors.white};
         cursor: pointer;
         background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
@@ -54,11 +63,16 @@ export const Wrapper = styled.button<WrapperProps>`
         text-decoration: none;
 
         &:hover {
-            background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
+            background: ${
+                minimal
+                    ? 'none'
+                    : `linear-gradient(180deg, #e35565 0%, #d958a6 50%)`
+            };
         }
 
-        ${fullWidth && wrapperModifiers.fullWidth()}
+        ${!!fullWidth && wrapperModifiers.fullWidth()}
         ${!!hasIcon && wrapperModifiers.withIcon(theme)}
+        ${!!minimal && wrapperModifiers.minimal(theme)}
         ${!!size && wrapperModifiers[size](theme)};
     `}
 `
