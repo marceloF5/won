@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Radio /> should render the heading 1`] = `
+<main
+  class=""
+>
+  <h1>
+    Radio
+  </h1>
+</main>
+`
