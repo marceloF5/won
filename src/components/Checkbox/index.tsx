@@ -1,21 +1,23 @@
 import { InputHTMLAttributes, useState } from 'react'
 import * as S from './styles'
 
+type CheckboxValue = string | ReadonlyArray<string> | number
+
 export type CheckboxProps = {
     onCheck?: (status: boolean) => void
     isChecked?: boolean
     label?: string
     labelFor?: string
     labelColor?: 'white' | 'black'
-    value?: string | ReadonlyArray<string> | number
+    value?: CheckboxValue
 } & InputHTMLAttributes<HTMLInputElement>
 
 const Checkbox = ({
     onCheck,
     isChecked = false,
     label,
-    labelFor = '',
     labelColor = 'white',
+    labelFor = '',
     value,
     ...otherProps
 }: CheckboxProps) => {
