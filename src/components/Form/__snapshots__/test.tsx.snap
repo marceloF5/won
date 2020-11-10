@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> should render the heading 1`] = `
+.c0 .sc-AxheI {
+  margin: 3.2rem auto 1.6rem;
+}
+
+.c0 .sc-AxjAm {
+  margin: 0.8rem 0;
+}
+
+.c1 {
+  color: #030517;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.c1 a {
+  border-bottom: 0.1rem solid #3cd3c1;
+  color: #3cd3c1;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: color,border,0.1s ease-in-out;
+  transition: color,border,0.1s ease-in-out;
+}
+
+.c1 a:hover {
+  color: #29b3a3;
+  border-bottom: 0.1rem solid #29b3a3;
+}
+
+<body>
+  <div>
+    <div
+      class="c0"
+    >
+      <div
+        class="c1"
+      >
+        My link
+      </div>
+    </div>
+  </div>
+</body>
+`

@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextField /> should render with error 1`] = `
+.c0 .c3 {
+  border-color: #ff3347;
+}
+
+.c0 .c1,
+.c0 .sc-AxhUy {
+  color: #ff3347;
+}
+
+.c0 .c1,
+.c0 .c5,
+.c0 .sc-AxhUy {
+  color: #8f8f8f;
+  cursor: not-allowed;
+}
+
+.c0 .c1::-webkit-input-placeholder,
+.c0 .c5::-webkit-input-placeholder,
+.c0 .sc-AxhUy::-webkit-input-placeholder {
+  color: currentColor;
+}
+
+.c0 .c1::-moz-placeholder,
+.c0 .c5::-moz-placeholder,
+.c0 .sc-AxhUy::-moz-placeholder {
+  color: currentColor;
+}
+
+.c0 .c1:-ms-input-placeholder,
+.c0 .c5:-ms-input-placeholder,
+.c0 .sc-AxhUy:-ms-input-placeholder {
+  color: currentColor;
+}
+
+.c0 .c1::placeholder,
+.c0 .c5::placeholder,
+.c0 .sc-AxhUy::placeholder {
+  color: currentColor;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: #eaeaea;
+  border: 0.2rem solid;
+  border-color: #eaeaea;
+  border-radius: 0.4rem;
+  padding: 0 1.6rem;
+}
+
+.c4:focus-within {
+  box-shadow: 0 0 0.5rem #f231a5;
+}
+
+.c6 {
+  background: transparent;
+  border: 0;
+  color: #030517;
+  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  font-size: 1.6rem;
+  outline: none;
+  padding: 0.8rem 0;
+  padding-left: 0;
+  width: 100%;
+}
+
+.c2 {
+  color: #030517;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.c7 {
+  color: #ff3347;
+  margin-top: 0.4rem;
+}
+
+<div
+  class="c0"
+  disabled=""
+>
+  <label
+    class="c1 c2"
+    for="textfield"
+  >
+    TextField
+  </label>
+  <div
+    class="c3 c4"
+  >
+    <input
+      class="c5 c6"
+      disabled=""
+      id="textfield"
+      type="text"
+      value=""
+    />
+  </div>
+  <p
+    class="c7"
+  >
+    Opps... invalid field
+  </p>
+</div>
+`
