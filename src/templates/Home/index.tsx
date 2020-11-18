@@ -1,7 +1,6 @@
 import { BannerProps } from 'components/Banner'
 import { GameCardProps } from 'components/GameCard'
 import Highlight, { HighlightProps } from 'components/Highlight'
-
 import { Container } from 'components/Container'
 import BannerSlider from 'components/BannerSlider'
 import Footer from 'components/Footer'
