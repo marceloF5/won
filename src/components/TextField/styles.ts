@@ -27,7 +27,6 @@ const wrapperModifiers = {
             &::placeholder {
                 color: currentColor;
             }
-
         }
     `
 }

@@ -27,5 +27,5 @@ export const Wrapper = styled(Container).attrs({ as: 'section' })`
         }
 
         margin-bottom: calc(${theme.spacings.large} * 2);
-  `}
+    `}
 `
