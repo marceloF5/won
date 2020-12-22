@@ -15,7 +15,7 @@ const Base = ({ children }: BaseTemplateProps) => (
             <Menu />
         </Container>
 
-        {children}
+        <S.Content>{children}</S.Content>
 
         <S.SectionFooter>
             <Container>
