@@ -6,6 +6,7 @@ export const Wrapper = styled.menu`
         display: flex;
         align-items: center;
         padding: ${theme.spacings.small} 0;
+        z-index: ${theme.layers.menu};
 
         position: relative;
     `}
