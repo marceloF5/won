@@ -6,7 +6,7 @@ export type TextFieldProps = {
     disabled?: boolean
     error?: string
     label?: string
-    labelFor?: string
+    name?: string
     labelColor?: 'white' | 'black'
     icon?: JSX.Element
     iconPosition?: 'left' | 'right'
@@ -18,8 +18,7 @@ const TextField = ({
     disabled = false,
     error = '',
     label,
-    labelFor = '',
-    labelColor = 'black',
+    name,
     icon,
     iconPosition = 'left',
     initialValue = '',
@@ -36,11 +35,7 @@ const TextField = ({
 
     return (
         <S.Wrapper disabled={disabled} error={!!error}>
-            {!!label && (
-                <S.Label htmlFor={labelFor} labelColor={labelColor}>
-                    {label}
-                </S.Label>
-            )}
+            {!!label && <S.Label htmlFor={name}>{label}</S.Label>}
             <S.InputWrapper>
                 {!!icon && <S.Icon iconPosition={iconPosition}>{icon}</S.Icon>}
                 <S.Input
@@ -50,6 +45,8 @@ const TextField = ({
                     hasIcon={!!icon}
                     iconPosition={iconPosition}
                     disabled={disabled}
+                    name={name}
+                    {...(label ? { id: name } : {})}
                     {...otherProps}
                 ></S.Input>
             </S.InputWrapper>
