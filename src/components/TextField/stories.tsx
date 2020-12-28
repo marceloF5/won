@@ -8,8 +8,7 @@ export default {
     args: {
         disabled: false,
         label: 'E-mail',
-        labelFor: 'email',
-        id: 'email',
+        name: 'email',
         initialValue: 'mp.fortunato88@gmail.com',
         placeholder: 'E-mail'
     },
