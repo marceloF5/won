@@ -7,9 +7,7 @@ import TextField from '.'
 
 describe('<TextField />', () => {
     it('should render with label', () => {
-        renderWithTheme(
-            <TextField label="TextField" labelFor="textfield" id="textfield" />
-        )
+        renderWithTheme(<TextField label="TextField" name="LabelName" />)
 
         expect(screen.getByLabelText('TextField')).toBeInTheDocument()
     })
@@ -29,12 +27,7 @@ describe('<TextField />', () => {
     it('should changes its value when typing', async () => {
         const onInput = jest.fn()
         renderWithTheme(
-            <TextField
-                onInput={onInput}
-                label="TextField"
-                labelFor="textfield"
-                id="textfield"
-            />
+            <TextField onInput={onInput} label="TextField" name="TextField" />
         )
 
         const input = screen.getByRole('textbox')
@@ -50,9 +43,7 @@ describe('<TextField />', () => {
     })
 
     it('should be accessible by tab', () => {
-        renderWithTheme(
-            <TextField label="TextField" labelFor="textfield" id="textfield" />
-        )
+        renderWithTheme(<TextField label="TextField" name="Textfield" />)
 
         const input = screen.getByLabelText('TextField')
         expect(document.body).toHaveFocus()
@@ -83,12 +74,7 @@ describe('<TextField />', () => {
     it('should NOT change value when input is disabled', async () => {
         const onInput = jest.fn()
         renderWithTheme(
-            <TextField
-                label="TextField"
-                labelFor="textfield"
-                id="textfield"
-                disabled
-            />
+            <TextField label="TextField" name="TextField" disabled />
         )
 
         expect(screen.getByRole('textbox')).toBeDisabled()
@@ -106,12 +92,7 @@ describe('<TextField />', () => {
 
     it('should NOT accessible when input is disabled', async () => {
         renderWithTheme(
-            <TextField
-                label="TextField"
-                labelFor="textfield"
-                id="textfield"
-                disabled
-            />
+            <TextField label="TextField" name="TextField" disabled />
         )
 
         const input = screen.getByLabelText('TextField')
@@ -125,8 +106,7 @@ describe('<TextField />', () => {
         const { container } = renderWithTheme(
             <TextField
                 label="TextField"
-                labelFor="textfield"
-                id="textfield"
+                name="TextField"
                 disabled
                 error="Opps... invalid field"
             />
