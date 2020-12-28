@@ -69,13 +69,11 @@ export const Input = styled.input<IconProps>`
     `}
 `
 
-export const Label = styled.label<
-    Pick<TextFieldProps, 'labelFor' | 'labelColor'>
->`
-    ${({ theme, labelColor }) => css`
-        color: ${theme.colors[labelColor!]};
-        cursor: pointer;
+export const Label = styled.label`
+    ${({ theme }) => css`
         font-size: ${theme.font.sizes.small};
+        color: ${theme.colors.black};
+        cursor: pointer;
     `}
 `
 
