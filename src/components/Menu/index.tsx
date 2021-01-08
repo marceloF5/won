@@ -26,12 +26,18 @@ const Menu = ({ username }: MenuProps) => {
             </MediaMatch>
 
             <S.LogoWrapper>
-                <Logo hideOnMobile />
+                <Link href="/" passHref>
+                    <a>
+                        <Logo hideOnMobile />
+                    </a>
+                </Link>
             </S.LogoWrapper>
 
             <MediaMatch greaterThan="medium">
                 <S.MenuNav>
-                    <S.MenuLink href="#">Home</S.MenuLink>
+                    <Link href="/" passHref>
+                        <S.MenuLink href="#">Home</S.MenuLink>
+                    </Link>
                     <S.MenuLink href="#">Explore</S.MenuLink>
                 </S.MenuNav>
             </MediaMatch>
@@ -40,9 +46,11 @@ const Menu = ({ username }: MenuProps) => {
                 <S.IconWrapper>
                     <SearchIcon aria-label="Search" />
                 </S.IconWrapper>
-                <S.IconWrapper>
-                    <ShoppingCartIcon aria-label="Open Shopping Cart" />
-                </S.IconWrapper>
+                <Link href="/cart">
+                    <S.IconWrapper>
+                        <ShoppingCartIcon aria-label="Open Shopping Cart" />
+                    </S.IconWrapper>
+                </Link>
 
                 {!username && (
                     <MediaMatch greaterThan="medium">
@@ -59,12 +67,18 @@ const Menu = ({ username }: MenuProps) => {
                     onClick={() => setIsOpen(false)}
                 />
                 <S.MenuNav>
-                    <S.MenuLink href="#">Home</S.MenuLink>
+                    <Link href="/" passHref>
+                        <S.MenuLink>Home</S.MenuLink>
+                    </Link>
                     <S.MenuLink href="#">Explore</S.MenuLink>
                     {!!username && (
                         <>
-                            <S.MenuLink href="#">My account</S.MenuLink>
-                            <S.MenuLink href="#">Wishlist</S.MenuLink>
+                            <Link href="/profile/me" passHref>
+                                <S.MenuLink>My account</S.MenuLink>
+                            </Link>
+                            <Link href="/wishlist" passHref>
+                                <S.MenuLink>Wishlist</S.MenuLink>
+                            </Link>
                         </>
                     )}
                 </S.MenuNav>
