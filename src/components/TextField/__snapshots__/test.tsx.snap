@@ -70,9 +70,9 @@ exports[`<TextField /> should render with error 1`] = `
 }
 
 .c2 {
+  font-size: 1.4rem;
   color: #030517;
   cursor: pointer;
-  font-size: 1.4rem;
 }
 
 .c7 {
@@ -86,7 +86,7 @@ exports[`<TextField /> should render with error 1`] = `
 >
   <label
     class="c1 c2"
-    for="textfield"
+    for="TextField"
   >
     TextField
   </label>
@@ -96,7 +96,8 @@ exports[`<TextField /> should render with error 1`] = `
     <input
       class="c5 c6"
       disabled=""
-      id="textfield"
+      id="TextField"
+      name="TextField"
       type="text"
       value=""
     />
