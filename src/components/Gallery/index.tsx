@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
 import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
 import { Close } from '@styled-icons/material-outlined/Close'
@@ -81,9 +80,7 @@ const Gallery = ({ items }: GalleryProps) => {
         <S.Wrapper>
             <Slider ref={slider} settings={settings}>
                 {items.map((item, index) => (
-                    <Image
-                        width="900"
-                        height="600"
+                    <img
                         role="button"
                         key={`thumb-${index}`}
                         src={item.src}
