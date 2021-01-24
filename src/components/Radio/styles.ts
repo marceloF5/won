@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { RadioProps } from '.'
 
-export const Wrapper = styled.main`
+export const Wrapper = styled.div`
     display: flex;
     align-items: center;
 `
