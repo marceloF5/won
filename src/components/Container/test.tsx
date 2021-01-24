@@ -13,6 +13,7 @@ describe('<Container />', () => {
         expect(container.firstChild).toHaveStyleRule('max-width', '130rem')
         expect(container.firstChild).toMatchInlineSnapshot(`
             .c0 {
+              width: 100%;
               max-width: 130rem;
               margin-right: auto;
               margin-left: auto;
