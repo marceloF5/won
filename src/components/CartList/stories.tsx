@@ -27,3 +27,9 @@ export const Default: Story<CartListProps> = (args) => (
         <CardList {...args} />
     </div>
 )
+
+export const WithButton: Story<CartListProps> = (args) => (
+    <div style={{ maxWidth: 800 }}>
+        <CardList {...args} hasButton />
+    </div>
+)
