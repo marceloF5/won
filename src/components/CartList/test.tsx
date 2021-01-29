@@ -17,4 +17,10 @@ describe('<CardList />', () => {
         expect(screen.getByText('€330.00')).toHaveStyle({ color: '#f231a5' })
         expect(container.firstChild).toMatchSnapshot()
     })
+
+    it('should render the button', () => {
+        renderWithTheme(<CardList {...props} hasButton />)
+
+        expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
+    })
 })
