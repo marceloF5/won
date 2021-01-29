@@ -21,11 +21,12 @@ export const Footer = styled.div`
 
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         ${media.greaterThan('medium')`
             font-size: ${theme.font.sizes.medium};
             padding: ${theme.spacings.small}
-        `}
+        `};
     `}
 `
 
