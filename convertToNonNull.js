@@ -32,11 +32,17 @@ async function convert(inputFile, outputFile) {
         }
     }
     const newSchema = graphql.visit(schema, visitor)
-    await fs.outputFile(outputFile, graphql.print(newSchema), 'utf8')
+    await fs.outputFile(outputFile[0], graphql.print(newSchema), 'utf8')
+
+    await fs.outputFile(
+        outputFile[1],
+        `export const typeDefs = \`${graphql.print(newSchema)}\``,
+        'utf8'
+    )
 }
 
 // convert the schema
-convert('schema-temp.gql', 'schema.gql')
+convert('schema-temp.gql', ['schema.gql', 'typeDefs.ts'])
 
 // delete the temporary schema
 fs.unlinkSync('schema-temp.gql')
