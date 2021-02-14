@@ -33,12 +33,6 @@ async function convert(inputFile, outputFile) {
     }
     const newSchema = graphql.visit(schema, visitor)
     await fs.outputFile(outputFile[0], graphql.print(newSchema), 'utf8')
-
-    await fs.outputFile(
-        outputFile[1],
-        `export const typeDefs = \`${graphql.print(newSchema)}\``,
-        'utf8'
-    )
 }
 
 // convert the schema
