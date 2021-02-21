@@ -6,7 +6,7 @@ import items from './mock'
 export default {
     title: 'ExploreSidebar',
     component: ExploreSidebar,
-    args: { items },
+    args: { items, onFilter: () => console.log('filter') },
     layout: 'fullscreen',
     parameters: {
         backgrounds: {
@@ -25,7 +25,10 @@ export const WithInitialValues: Story<ExploreSidebarProps> = (args) => (
     <div style={{ padding: 16, maxWidth: 320 }}>
         <ExploreSidebar
             {...args}
-            initialValues={{ windows: true, sort_by: 'low-to-high' }}
+            initialValues={{
+                platforms: [' windows', 'linux'],
+                sort_by: 'low-to-high'
+            }}
         />
     </div>
 )
