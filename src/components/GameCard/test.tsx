@@ -4,10 +4,11 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import GameCard from '.'
 
 const props = {
+    slug: 'population-zero',
     title: 'Population Zero',
     developer: 'Rockestar Games',
     img: 'https://source.unsplash.com/user/willianjusten/1042x580',
-    price: '€ 65.00'
+    price: 65
 }
 
 describe('<GameCard />', () => {
@@ -25,13 +26,17 @@ describe('<GameCard />', () => {
             props.img
         )
 
+        expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
+            'href',
+            `/game/${props.slug}`
+        )
         expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
     })
 
     it('should render price in label', () => {
         renderWithTheme(<GameCard {...props} />)
 
-        const price = screen.getByText('€ 65.00')
+        const price = screen.getByText('$65.00')
 
         expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
         expect(price).toHaveStyle({
@@ -40,10 +45,10 @@ describe('<GameCard />', () => {
     })
 
     it('should render a line-through in price when promotional', () => {
-        renderWithTheme(<GameCard {...props} promotionalPrice="€ 20.00" />)
+        renderWithTheme(<GameCard {...props} promotionalPrice={20} />)
 
-        const promotionalPrice = screen.getByText('€ 65.00')
-        const price = screen.getByText('€ 20.00')
+        const promotionalPrice = screen.getByText('$65.00')
+        const price = screen.getByText('$20.00')
 
         expect(promotionalPrice).toHaveStyle({ textDecoration: 'line-through' })
         expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
@@ -82,5 +87,11 @@ describe('<GameCard />', () => {
         expect(ribbon).toHaveStyle({ backgroundColor: '#3cd3c1' })
         expect(ribbon).toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' })
         expect(ribbon).toBeInTheDocument()
+    })
+
+    it('should render word FREE in label when price is 0', () => {
+        renderWithTheme(<GameCard {...props} price={0} />)
+
+        expect(screen.getByText('FREE')).toBeInTheDocument()
     })
 })
