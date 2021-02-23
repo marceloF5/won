@@ -5,10 +5,11 @@ export default {
     title: 'Module/GameCard',
     component: GameCard,
     args: {
+        slug: 'population-zero',
         title: 'Population Zero',
         developer: 'Rockestar Games',
         img: 'https://source.unsplash.com/user/willianjusten/1042x580',
-        price: '€ 65.00'
+        price: 65
     },
     argTypes: {
         onFav: { action: 'clicked' },
@@ -34,7 +35,7 @@ export const WithRibbon: Story<GameCardProps> = (args) => (
 )
 
 WithRibbon.args = {
-    promotionalPrice: '€ 20.00',
+    promotionalPrice: 20,
     ribbon: '80% OFF',
     ribbonSize: 'small',
     ribbonColor: 'primary'
