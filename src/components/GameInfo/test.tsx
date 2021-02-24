@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react'
+import React from 'react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import GameInfo from '.'
@@ -6,7 +7,7 @@ import GameInfo from '.'
 const props = {
     title: 'My game title',
     description: 'My game description',
-    price: '210.00'
+    price: 210
 }
 
 describe('<GameInfo />', () => {
@@ -17,7 +18,7 @@ describe('<GameInfo />', () => {
             screen.getByRole('heading', { name: /my game title/i })
         ).toBeInTheDocument()
         expect(screen.getByText(/my game description/i)).toBeInTheDocument()
-        expect(screen.getByText(/\$210.00/)).toBeInTheDocument()
+        expect(screen.getByText(/\$210\.00/)).toBeInTheDocument()
         expect(container.firstChild).toMatchSnapshot()
     })
 
@@ -30,5 +31,11 @@ describe('<GameInfo />', () => {
         expect(
             screen.getByRole('button', { name: /wishlist/i })
         ).toBeInTheDocument()
+    })
+
+    it('should render word FREE in label when price is 0', () => {
+        renderWithTheme(<GameInfo {...props} price={0} />)
+
+        expect(screen.getByText('FREE')).toBeInTheDocument()
     })
 })
