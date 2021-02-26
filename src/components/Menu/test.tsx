@@ -9,7 +9,6 @@ describe('<Menu />', () => {
 
         expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
         expect(screen.getByLabelText(/search/i)).toBeInTheDocument()
-        expect(screen.getByLabelText(/open shopping cart/i)).toBeInTheDocument()
         expect(
             screen.getByRole('img', { name: /won games/i })
         ).toBeInTheDocument()
@@ -37,17 +36,13 @@ describe('<Menu />', () => {
     it('should show register box when logged out', () => {
         renderWithTheme(<Menu />)
 
-        expect(screen.queryByText(/my account/i)).not.toBeInTheDocument()
-        expect(screen.queryByText(/wishlist/i)).not.toBeInTheDocument()
         expect(screen.getByText(/sign in now/i)).toBeInTheDocument()
         expect(screen.getByText(/sign up/i)).toBeInTheDocument()
     })
 
-    it('should show my account and wishlist when logged in', () => {
-        renderWithTheme(<Menu username="username" />)
+    it('should not show sign up when logged in', () => {
+        renderWithTheme(<Menu username="marcelo" />)
 
-        expect(screen.getByText(/my account/i)).toBeInTheDocument()
-        expect(screen.getByText(/wishlist/i)).toBeInTheDocument()
         expect(screen.queryByText(/log in now/i)).not.toBeInTheDocument()
         expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument()
     })
