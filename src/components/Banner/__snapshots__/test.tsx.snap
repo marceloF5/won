@@ -74,11 +74,11 @@ exports[`<Banner /> should render correctly 1`] = `
 }
 
 @media (max-width:1170px) {
-  .c0 .sc-AxirZ {
+  .c0 .sc-gsTCUz {
     right: 0;
   }
 
-  .c0 .sc-AxirZ::before {
+  .c0 .sc-gsTCUz::before {
     display: none;
   }
 }
