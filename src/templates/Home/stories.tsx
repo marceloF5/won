@@ -12,9 +12,8 @@ export default {
         newGames: gameCardMock,
         mostPopularHighlight: highlightMock,
         mostPopularGames: gameCardMock,
-        upcommingGames: gameCardMock,
-        upcommingHighlight: highlightMock,
-        upcommingMoreGames: gameCardMock,
+        upcomingGames: gameCardMock,
+        upcomingHighlight: highlightMock,
         freeHighlight: highlightMock,
         freeGames: gameCardMock
     },
@@ -23,9 +22,8 @@ export default {
         newGames: { type: '' },
         mostPopularHighlight: { type: '' },
         mostPopularGames: { type: '' },
-        upcommingGames: { type: '' },
-        upcommingHighlight: { type: '' },
-        upcommingMoreGames: { type: '' },
+        upcomingGames: { type: '' },
+        upcomingHighlight: { type: '' },
         freeHighlight: { type: '' },
         freeGames: { type: '' }
     },
