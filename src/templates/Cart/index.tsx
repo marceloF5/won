@@ -12,12 +12,14 @@ import Base from 'templates/Base'
 import * as S from './styles'
 
 export type CartProps = {
+    recommendedGamesTitle: string
     recommendedGames: GameCardProps[]
     recommendedHighlight: HighlightProps
 } & CartListProps &
     Pick<PaymentOptionsProps, 'cards'>
 
 const Cart = ({
+    recommendedGamesTitle,
     recommendedGames,
     recommendedHighlight,
     items,
@@ -32,7 +34,7 @@ const Cart = ({
                 <Heading lineLeft lineColor="secondary">
                     My Cart
                 </Heading>
-                {items.length ? (
+                {items?.length ? (
                     <S.Content>
                         <CartList items={items} total={total} />
                         <PaymentOptions
@@ -50,7 +52,7 @@ const Cart = ({
                 <Divider />
             </Container>
             <Showcase
-                title="You may like these games"
+                title={recommendedGamesTitle}
                 games={recommendedGames}
                 highlight={recommendedHighlight}
             />
