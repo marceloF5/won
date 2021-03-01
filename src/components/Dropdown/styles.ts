@@ -23,7 +23,8 @@ export const Wrapper = styled.div<WrapperProps>`
 
         position: relative;
 
-        ${Content} {
+        ${Content},
+        ${Overlay} {
             transition: transform 0.2s ease-in,
                 opacity ${theme.transition.default};
 
@@ -36,6 +37,7 @@ export const Wrapper = styled.div<WrapperProps>`
 export const Title = styled.div`
     ${({ theme }) => css`
         color: ${theme.colors.white};
+        z-index: ${theme.layers.alwaysOnTop};
 
         position: relative;
         cursor: pointer;
@@ -51,6 +53,7 @@ export const Content = styled.div`
         background: ${theme.colors.white};
         color: ${theme.colors.black};
         margin-top: ${theme.spacings.small};
+        z-index: ${theme.layers.alwaysOnTop};
 
         position: absolute;
         right: 0;
@@ -68,5 +71,18 @@ export const Content = styled.div`
             right: 2.4rem;
             content: '';
         }
+    `}
+`
+
+export const Overlay = styled.div`
+    ${({ theme }) => css`
+        background-color: rgb(0, 0, 0, 0.5);
+        z-index: ${theme.layers.overlay};
+
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
     `}
 `
