@@ -21,6 +21,13 @@ jest.mock('components/Footer', () => {
     }
 })
 
+jest.mock('next/link', () => ({
+    __esModule: true,
+    default: function Mock({ children }: { children: React.ReactNode }) {
+        return <div>{children}</div>
+    }
+}))
+
 describe('<Base />', () => {
     it('should render menu, footer and children', () => {
         renderWithTheme(
