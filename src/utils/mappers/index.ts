@@ -1,8 +1,8 @@
-import { QueryGames_games } from 'graphql/generated/QueryGames'
 import {
     QueryHome_banners,
     QueryHome_sections_freeGames_highlight
 } from 'graphql/generated/QueryHome'
+import { QueryGames_games } from '../../graphql/generated/QueryGames'
 
 export const bannerMapper = (banners: QueryHome_banners[]) => {
     return banners.map((banner) => ({
@@ -20,16 +20,16 @@ export const bannerMapper = (banners: QueryHome_banners[]) => {
 }
 
 export const gamesMapper = (games: QueryGames_games[] | null | undefined) => {
-    return (
-        games &&
-        games.map((game) => ({
-            slug: game.slug,
-            title: game.name,
-            developers: game.developers[0].name,
-            img: `http://localhost:1337${game.cover?.url}`,
-            price: game.price
-        }))
-    )
+    return games
+        ? games.map((game) => ({
+              id: game.id,
+              slug: game.slug,
+              title: game.name,
+              developers: game.developers[0].name,
+              img: `http://localhost:1337${game.cover?.url}`,
+              price: game.price
+          }))
+        : []
 }
 
 export const highLightMapper = (
