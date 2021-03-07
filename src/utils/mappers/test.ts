@@ -1,9 +1,10 @@
-import { bannerMapper, gamesMapper, highLightMapper } from '.'
+import { bannerMapper, cartMapper, gamesMapper, highLightMapper } from '.'
 import {
     QueryHome_banners,
     QueryHome_sections_freeGames_highlight
-} from '../../graphql/generated/QueryHome'
-import { QueryGames_games } from '../../graphql/generated/QueryGames'
+} from 'graphql/generated/QueryHome'
+import { QueryGames_games } from 'graphql/generated/QueryGames'
+import formatPrice from '../format-price'
 
 describe('bannerMappers()', () => {
     it('should return right format when mapped', () => {
@@ -33,7 +34,7 @@ describe('bannerMappers()', () => {
     })
 })
 
-describe('gamesMappers()', () => {
+describe('gamesMapper()', () => {
     it('should return an empty array if there are no games', () => {
         expect(gamesMapper(null)).toStrictEqual([])
     })
@@ -60,7 +61,7 @@ describe('gamesMappers()', () => {
     })
 })
 
-describe('highlightMappers()', () => {
+describe('highlightMapper()', () => {
     it('should return an empty object if there is no highlight', () => {
         expect(highLightMapper(null)).toStrictEqual(null)
     })
@@ -84,5 +85,30 @@ describe('highlightMappers()', () => {
             buttonLink: 'button link',
             alignment: 'left'
         })
+    })
+})
+
+describe('cartMapper()', () => {
+    it('should return an empty object if there is no games', () => {
+        expect(cartMapper(undefined)).toStrictEqual([])
+    })
+    it('should return right format when mapped', () => {
+        const game = {
+            id: '1',
+            name: 'Sample Game',
+            price: 10.5,
+            cover: {
+                url: '/sample-game.jpg'
+            }
+        } as QueryGames_games
+
+        expect(cartMapper([game])).toStrictEqual([
+            {
+                id: '1',
+                title: 'Sample Game',
+                img: 'http://localhost:1337/sample-game.jpg',
+                price: formatPrice(10.5)
+            }
+        ])
     })
 })
