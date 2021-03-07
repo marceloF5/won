@@ -1,6 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react'
-
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen, fireEvent } from 'utils/test-utils'
 import GameCard from '.'
 
 const props = {
@@ -13,7 +11,7 @@ const props = {
 
 describe('<GameCard />', () => {
     it('should render correctly', () => {
-        renderWithTheme(<GameCard {...props} />)
+        render(<GameCard {...props} />)
 
         expect(
             screen.getByRole('heading', { name: props.title })
@@ -34,7 +32,7 @@ describe('<GameCard />', () => {
     })
 
     it('should render price in label', () => {
-        renderWithTheme(<GameCard {...props} />)
+        render(<GameCard {...props} />)
 
         const price = screen.getByText('$65.00')
 
@@ -45,7 +43,7 @@ describe('<GameCard />', () => {
     })
 
     it('should render a line-through in price when promotional', () => {
-        renderWithTheme(<GameCard {...props} promotionalPrice={20} />)
+        render(<GameCard {...props} promotionalPrice={20} />)
 
         const promotionalPrice = screen.getByText('$65.00')
         const price = screen.getByText('$20.00')
@@ -55,7 +53,7 @@ describe('<GameCard />', () => {
     })
 
     it('should render a fulled Favorite icon when favorite is true', () => {
-        renderWithTheme(<GameCard {...props} favorite />)
+        render(<GameCard {...props} favorite />)
 
         expect(
             screen.getByLabelText(/remove from wishlist/i)
@@ -65,7 +63,7 @@ describe('<GameCard />', () => {
     it('should call on onFav method favorite is clicked', () => {
         const onFav = jest.fn()
 
-        renderWithTheme(<GameCard {...props} favorite onFav={onFav} />)
+        render(<GameCard {...props} favorite onFav={onFav} />)
 
         const favButton = screen.getAllByRole('button')[0]
 
@@ -73,7 +71,7 @@ describe('<GameCard />', () => {
     })
 
     it('should render a Ribbon', () => {
-        renderWithTheme(
+        render(
             <GameCard
                 {...props}
                 ribbon="20% OFF"
@@ -90,7 +88,7 @@ describe('<GameCard />', () => {
     })
 
     it('should render word FREE in label when price is 0', () => {
-        renderWithTheme(<GameCard {...props} price={0} />)
+        render(<GameCard {...props} price={0} />)
 
         expect(screen.getByText('FREE')).toBeInTheDocument()
     })

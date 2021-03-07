@@ -1,10 +1,10 @@
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import { Grid } from '.'
 
 describe('<Grid />', () => {
     it('should render correct', () => {
-        const { container } = renderWithTheme(<Grid />)
+        const { container } = render(<Grid />)
 
         expect(container.firstChild).toMatchInlineSnapshot(`
             .c0 {
