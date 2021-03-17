@@ -36,6 +36,7 @@ export const Nav = styled.nav`
 
 export const Link = styled.a<LinkProps>`
     ${({ theme, isActive }) => css`
+        cursor: pointer;
         padding: ${theme.spacings.xsmall} ${theme.spacings.small};
         text-decoration: none;
         transition: background, color, ${theme.transition.default};

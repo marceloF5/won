@@ -16,7 +16,7 @@ describe('<ProfileMenu />', () => {
             screen.getByRole('link', { name: /my orders/i })
         ).toBeInTheDocument()
         expect(
-            screen.getByRole('link', { name: /sign out/i })
+            screen.getByRole('button', { name: /sign out/i })
         ).toBeInTheDocument()
 
         expect(container.firstChild).toMatchSnapshot()
