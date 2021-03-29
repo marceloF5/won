@@ -23,6 +23,7 @@ export const Link = styled.a`
     ${({ theme }) => css`
         background-color: ${theme.colors.white};
         color: ${theme.colors.black};
+        cursor: pointer;
         padding: ${theme.spacings.xsmall} ${theme.spacings.small};
         transition: background, color, ${theme.transition.default};
         text-decoration: none;
