@@ -69,6 +69,12 @@ exports[`<TextField /> should render with error 1`] = `
   width: 100%;
 }
 
+.c6:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 2.4rem #eaeaea inset;
+  -webkit-filter: none;
+  filter: none;
+}
+
 .c2 {
   font-size: 1.4rem;
   color: #030517;
