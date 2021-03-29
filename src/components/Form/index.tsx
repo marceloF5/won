@@ -50,7 +50,7 @@ export const FormError = styled.div`
         color: ${theme.colors.red};
         font-size: ${theme.font.sizes.small};
 
-        svg: {
+        svg {
             width: ${theme.spacings.xsmall};
         }
     `}
