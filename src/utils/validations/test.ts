@@ -1,4 +1,9 @@
-import { signInValidate, signUpValidate } from '.'
+import {
+    signInValidate,
+    signUpValidate,
+    forgotValidate,
+    resetValidate
+} from '.'
 
 describe('Validations Fields', () => {
     describe('signInValidate', () => {
@@ -67,7 +72,55 @@ describe('Validations Fields', () => {
             expect(
                 signUpValidate(values).confirm_password
             ).toMatchInlineSnapshot(
-                `"confirm password does not match with password"`
+                `"Confirm password does not match with password"`
+            )
+        })
+    })
+
+    describe('forgotValidate', () => {
+        it('should validate empty fields', () => {
+            const values = { email: '' }
+
+            expect(forgotValidate(values)).toMatchObject({
+                email: '"email" is not allowed to be empty'
+            })
+        })
+
+        it('should return if invalid email error', () => {
+            const values = { email: 'invalid-email-format' }
+
+            expect(forgotValidate(values).email).toMatchInlineSnapshot(
+                `"\\"email\\" must be a valid email"`
+            )
+        })
+    })
+
+    describe('resetValidate', () => {
+        it('should validate empty fields', () => {
+            const values = { password: '', confirm_password: '' }
+
+            expect(resetValidate(values)).toMatchObject({
+                password: expect.any(String)
+            })
+        })
+
+        it('should validate empty confirm password field when empty', () => {
+            const values = { password: '123', confirm_password: '' }
+
+            expect(
+                resetValidate(values).confirm_password
+            ).toMatchInlineSnapshot(
+                `"\\"confirm_password\\" is not allowed to be empty"`
+            )
+        })
+
+        it('should validate empty confirm password field', () => {
+            const values = { password: '123', confirm_password: '23' }
+
+            expect(
+                resetValidate(values).confirm_password
+            ).toMatchInlineSnapshot(
+                `"Confirm password does not match with password"`
             )
         })
     })

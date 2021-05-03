@@ -1,6 +1,11 @@
 import Joi from 'joi'
 import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes'
 
+type ResetValidateParams = { confirm_password: string } & Pick<
+    UsersPermissionsRegisterInput,
+    'password'
+>
+
 export type FieldErrors = {
     [key: string]: string
 }
@@ -15,7 +20,7 @@ const fieldsValidations = {
         .valid(Joi.ref('password'))
         .required()
         .messages({
-            'any.only': 'confirm password does not match with password'
+            'any.only': 'Confirm password does not match with password'
         })
 }
 
@@ -42,6 +47,22 @@ export function signInValidate(
 
 export function signUpValidate(values: UsersPermissionsRegisterInput) {
     const schema = Joi.object(fieldsValidations)
+
+    return getFieldErrors(schema.validate(values, { abortEarly: false }))
+}
+
+export function forgotValidate(
+    values: Pick<UsersPermissionsRegisterInput, 'email'>
+) {
+    const { email } = fieldsValidations
+    const schema = Joi.object({ email })
+
+    return getFieldErrors(schema.validate(values, { abortEarly: false }))
+}
+
+export function resetValidate(values: ResetValidateParams) {
+    const { password, confirm_password } = fieldsValidations
+    const schema = Joi.object({ password, confirm_password })
 
     return getFieldErrors(schema.validate(values, { abortEarly: false }))
 }
