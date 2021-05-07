@@ -21,7 +21,7 @@ const TextField = ({
     name,
     icon,
     iconPosition = 'left',
-    initialValue = '',
+    initialValue,
     ...otherProps
 }: TextFieldProps) => {
     const [value, setValue] = useState(initialValue)
