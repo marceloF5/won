@@ -1,14 +1,17 @@
-import { useSession } from 'next-auth/client'
+import Link from 'next/link'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 import TextField from 'components/TextField'
+import React from 'react'
 
 import * as S from './styles'
 
-const FormProfile = () => {
-    const [session] = useSession()
-    const user = session?.user
+export type FormProfileProps = {
+    username?: string
+    email?: string
+}
 
+const FormProfile = ({ username, email }: FormProfileProps) => {
     return (
         <>
             <Heading lineBottom color="black" size="small">
@@ -18,30 +21,25 @@ const FormProfile = () => {
             <S.Form>
                 <TextField
                     name="name"
-                    placeholder="Name"
-                    label="Name"
-                    initialValue={user?.name || ''}
+                    placeholder="Username"
+                    label="Username"
+                    initialValue={username}
                 />
                 <TextField
                     name="email"
                     type="email"
                     placeholder="Email"
                     label="E-mail"
-                    initialValue={user?.email || ''}
+                    initialValue={email}
                 />
-                <TextField
-                    name="password"
-                    type="password"
-                    placeholder="Type your password"
-                    label="Password"
-                />
-                <TextField
-                    name="new_password"
-                    type="new_password"
-                    placeholder="New password"
-                    label="New Password"
-                />
-                <Button>Save</Button>
+                <S.ButtonContainer>
+                    <Link href={`/forgot-password?email=${email}`} passHref>
+                        <Button minimal size="medium" as="a">
+                            Reset Password
+                        </Button>
+                    </Link>
+                    <Button>Save</Button>
+                </S.ButtonContainer>
             </S.Form>
         </>
     )
