@@ -1,7 +1,11 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/test-utils'
 import Base from '.'
+
+jest.mock('next-auth/client', () => ({
+    useSession: jest.fn(() => {
+        return [{ session: null }]
+    })
+}))
 
 jest.mock('components/Menu', () => {
     return {
@@ -30,7 +34,7 @@ jest.mock('next/link', () => ({
 
 describe('<Base />', () => {
     it('should render menu, footer and children', () => {
-        renderWithTheme(
+        render(
             <Base>
                 <h1>Heading</h1>
             </Base>
