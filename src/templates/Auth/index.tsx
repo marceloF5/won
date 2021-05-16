@@ -1,8 +1,8 @@
 import Link from 'next/link'
-
-import * as S from './styles'
 import Logo from 'components/Logo'
 import Heading from 'components/Heading'
+
+import * as S from './styles'
 
 export type AuthProps = {
     title: string
