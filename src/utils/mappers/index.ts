@@ -4,6 +4,7 @@ import {
 } from 'graphql/generated/QueryHome'
 import { QueryGames_games } from 'graphql/generated/QueryGames'
 import formatPrice from '../format-price'
+import { QueryWishlist_wishlists_games } from 'graphql/generated/QueryWishlist'
 
 export const bannerMapper = (banners: QueryHome_banners[]) => {
     return banners.map((banner) => ({
@@ -20,13 +21,19 @@ export const bannerMapper = (banners: QueryHome_banners[]) => {
     }))
 }
 
-export const gamesMapper = (games: QueryGames_games[] | null | undefined) => {
+export const gamesMapper = (
+    games:
+        | QueryGames_games[]
+        | QueryWishlist_wishlists_games[]
+        | null
+        | undefined
+) => {
     return games
         ? games.map((game) => ({
               id: game.id,
               slug: game.slug,
               title: game.name,
-              developers: game.developers[0].name,
+              developer: game.developers[0].name,
               img: `http://localhost:1337${game.cover?.url}`,
               price: game.price
           }))

@@ -53,7 +53,7 @@ describe('gamesMapper()', () => {
                 id: '1',
                 slug: 'game',
                 title: 'game',
-                developers: 'developer',
+                developer: 'developer',
                 img: 'http://localhost:1337/image.jpg',
                 price: 10
             }
