@@ -84,6 +84,10 @@ exports[`<FormSignIn /> should render the form 1`] = `
   padding: 0.8rem 4.8rem;
 }
 
+.c8:focus {
+  outline: 1px dashed;
+}
+
 .c8:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
