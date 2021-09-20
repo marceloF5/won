@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import {
+    createContext,
+    useContext,
+    useState,
+    useEffect,
+    useCallback
+} from 'react'
 import { getStorageItem, setStorageItem } from 'utils/localStorage'
 import { useQueryGames } from 'graphql/queries/games'
 import { cartMapper } from 'utils/mappers'
@@ -6,7 +12,7 @@ import formatPrice from 'utils/format-price'
 
 const CART_KEY = 'cartItems'
 
-type CartItem = {
+export type CartItem = {
     id: string
     img: string
     title: string
@@ -83,9 +89,9 @@ const CartProvider = ({ children }: CartProviderProps) => {
         saveCart(newCartItems)
     }
 
-    const clearCart = () => {
+    const clearCart = useCallback(() => {
         saveCart([])
-    }
+    }, [])
 
     return (
         <CartContext.Provider
