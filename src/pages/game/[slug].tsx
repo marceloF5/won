@@ -10,7 +10,7 @@ import {
 } from 'graphql/generated/QueryGameBySlug'
 import { QueryRecommended } from 'graphql/generated/QueryRecommended'
 import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
-import { gamesMapper, highLightMapper } from 'utils/mappers'
+import { gamesMapper, highlightMapper } from 'utils/mappers'
 import {
     QueryUpcoming,
     QueryUpcomingVariables
@@ -94,7 +94,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
                 genres: game.categories.map((category) => category.name)
             },
             upcomingTitle: sections?.upcomingGames?.title,
-            upcomingHighlight: highLightMapper(
+            upcomingHighlight: highlightMapper(
                 sections?.upcomingGames?.highlight
             ),
             upcomingGames: gamesMapper(upcomingGames),
